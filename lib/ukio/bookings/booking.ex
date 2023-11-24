@@ -1,4 +1,4 @@
-defmodule Ukio.Apartments.Booking do
+defmodule Ukio.Bookings.Booking do
   use Ecto.Schema
   import Ecto.Changeset
 

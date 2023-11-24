@@ -1,8 +1,8 @@
 defmodule UkioWeb.BookingController do
   use UkioWeb, :controller
 
-  alias Ukio.Apartments
-  alias Ukio.Apartments.Booking
+  alias Ukio.Bookings
+  alias Ukio.Bookings.Booking
   alias Ukio.Bookings.Handlers.BookingCreator
 
   action_fallback UkioWeb.FallbackController
@@ -16,7 +16,7 @@ defmodule UkioWeb.BookingController do
   end
 
   def show(conn, %{"id" => id}) do
-    booking = Apartments.get_booking!(id)
+    booking = Bookings.get_booking!(id)
     render(conn, :show, booking: booking)
   end
 end

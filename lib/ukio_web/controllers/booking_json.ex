@@ -1,5 +1,5 @@
 defmodule UkioWeb.BookingJSON do
-  alias Ukio.Apartments.Booking
+  alias Ukio.Bookings.Booking
 
   @doc """
   Renders a list of bookings.

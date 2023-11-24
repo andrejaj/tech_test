@@ -2,6 +2,7 @@ defmodule UkioWeb.BookingControllerTest do
   use UkioWeb.ConnCase, async: true
 
   import Ukio.ApartmentsFixtures
+  import Ukio.BookingsFixtures
 
   @create_attrs %{
     apartment_id: 42,
