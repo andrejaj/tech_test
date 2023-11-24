@@ -1,4 +1,4 @@
-defmodule Ukio.Bookings.Bookings do
+defmodule Ukio.Bookings do
   @moduledoc """
   The Bookings context.
   """

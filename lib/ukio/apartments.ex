@@ -1,4 +1,4 @@
-defmodule Ukio.Apartments.Apartments do
+defmodule Ukio.Apartments do
   @moduledoc """
   The Apartments context.
   """

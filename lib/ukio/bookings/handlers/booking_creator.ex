@@ -3,8 +3,7 @@ defmodule Ukio.Bookings.Handlers.BookingCreator do
   alias Ukio.Bookings
 
   def create(
-        %{"check_in" => check_in, "check_out" => check_out, "apartment_id" => apartment_id} =
-          params
+        %{"check_in" => check_in, "check_out" => check_out, "apartment_id" => apartment_id}
       ) do
     with a <- Apartments.get_apartment!(apartment_id),
          b <- generate_booking_data(a, check_in, check_out) do
