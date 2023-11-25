@@ -101,4 +101,20 @@ defmodule Ukio.Bookings do
   def change_booking(%Booking{} = booking, attrs \\ %{}) do
     Booking.changeset(booking, attrs)
   end
+  
+  @doc """
+  Returns bookings associated with apartment_id.
+
+  ## Examples
+
+      iex> list_bookings_for_apartment(apartment_id)
+      {:ok, list_of_bookings}
+	  
+	   iex> list_bookings_for_apartment(apartment_id)
+      {:ok, :unknown}
+
+  """
+  def list_bookings_for_apartment(apartment_id) do
+    Repo.all(from(b in Booking, where: b.apartment_id == ^apartment_id))
+  end
 end

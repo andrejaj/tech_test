@@ -8,10 +8,19 @@ defmodule UkioWeb.BookingController do
   action_fallback UkioWeb.FallbackController
 
   def create(conn, %{"booking" => booking_params}) do
-    with {:ok, %Booking{} = booking} <- BookingCreator.create(booking_params) do
+	 with {:ok, %Booking{} = booking} <- BookingCreator.create(Map.put(booking_params, "market", "normal")) do
       conn
       |> put_status(:created)
       |> render(:show, booking: booking)
+    else
+      {:error, :unavailable} ->
+        conn
+        |> put_status(:unauthorized)
+        |> render(:error, %{error: "Apartment is unavailable for the selected dates"})
+      {:error, :invalid_request} ->
+        conn
+        |> put_status(:bad_request)
+        |> render(:error, %{error: "Invalid request"})
     end
   end
 
