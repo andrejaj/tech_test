@@ -4,18 +4,13 @@ defmodule UkioWeb.ApartmentControllerTest do
   import Ukio.ApartmentsFixtures
 
   setup %{conn: conn} do
-    {:ok, conn: put_req_header(conn, "accept", "application/json")}
+    {:ok, conn: put_req_header(conn, "accept", "application/json"), apartment: apartment_fixture()}
   end
 
   describe "index" do
     test "lists all apartments", %{conn: conn} do
       conn = get(conn, ~p"/api/apartments")
-      assert length(json_response(conn, 200)["data"]) == 0
+      assert length(json_response(conn, 200)["data"]) == 1
     end
-  end
-
-  defp create_apartment(_) do
-    apartment = apartment_fixture()
-    %{apartment: apartment}
   end
 end

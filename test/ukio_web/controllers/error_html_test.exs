@@ -4,6 +4,10 @@ defmodule UkioWeb.ErrorHTMLTest do
   # Bring render_to_string/4 for testing custom views
   import Phoenix.Template
 
+  test "renders 422.html" do
+    assert render_to_string(UkioWeb.ErrorHTML, "422", "html", []) == "Unprocessable Entity"
+  end
+  
   test "renders 404.html" do
     assert render_to_string(UkioWeb.ErrorHTML, "404", "html", []) == "Not Found"
   end
