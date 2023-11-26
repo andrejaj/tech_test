@@ -25,7 +25,8 @@ defmodule Ukio.Bookings.Booking do
 		:check_out, 
 		:apartment_id, 
 		:monthly_rent, 
-		:deposit, 
+		:deposit,
+	    :utilities,
 		:market
 	])
     |> validate_required([
@@ -34,6 +35,7 @@ defmodule Ukio.Bookings.Booking do
       :apartment_id,
       :monthly_rent,
       :deposit,
+	  :utilities,
 	  :market
     ])
   end
@@ -42,7 +44,7 @@ defmodule Ukio.Bookings.Booking do
   def calculate_deposit(monthly_rent, _), do: div(monthly_rent, 2)
 
   def calculate_utilities(square_meters, "mars") do
-	utilities_rate = 476.2 # Utilities Rate= Utilities / Square Meters 
+	utilities_rate = 476.2 # utilities_rate= utilities / square_meters 
 	result = square_meters * utilities_rate
 	:erlang.floor(result)
   end

@@ -1,4 +1,5 @@
 defmodule UkioWeb.BookingJSON do
+  use Phoenix.Controller
   alias Ukio.Bookings.Booking
 
   @doc """
@@ -15,6 +16,13 @@ defmodule UkioWeb.BookingJSON do
     %{data: data(booking)}
   end
 
+  @doc """
+  Renders an error response.
+  """
+  def error(%{error: error}) do
+    %{error: error}
+  end
+  
   defp data(%Booking{} = booking) do
     %{
       id: booking.id,
@@ -23,7 +31,8 @@ defmodule UkioWeb.BookingJSON do
       apartment_id: booking.apartment_id,
       monthly_rent: booking.monthly_rent,
       deposit: booking.deposit,
-      utilities: booking.utilities
+      utilities: booking.utilities,
+	  market: booking.market
     }
   end
 end

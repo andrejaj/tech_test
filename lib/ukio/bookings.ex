@@ -115,6 +115,12 @@ defmodule Ukio.Bookings do
 
   """
   def list_bookings_for_apartment(apartment_id) do
-    Repo.all(from(b in Booking, where: b.apartment_id == ^apartment_id))
+    query =
+      from(b in Booking,
+        join: a in Apartment, on: b.apartment_id == a.id,
+        where: a.id == ^apartment_id,
+        select: b)
+
+    Repo.all(query)
   end
 end

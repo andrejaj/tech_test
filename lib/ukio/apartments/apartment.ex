@@ -1,8 +1,9 @@
 defmodule Ukio.Apartments.Apartment do
   use Ecto.Schema
   import Ecto.Changeset
-
+  
   schema "apartments" do
+	
     field :address, :string
     field :monthly_price, :integer
     field :name, :string

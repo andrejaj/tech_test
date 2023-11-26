@@ -19,7 +19,8 @@ defmodule Ukio.BookingsFixtures do
         check_out: ~D[2023-03-26],
         deposit: 100_000,
         monthly_rent: apartment.monthly_price,
-        utilities: 20000
+        utilities: 20000,
+		market: "normal"
       })
       |> Ukio.Bookings.create_booking()
 
